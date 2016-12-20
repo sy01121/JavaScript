@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象-字面量方式创建对象</title>
+    <script type="text/javascript">
+        // ① 字面量方式创建对象
+        // 成员名称：属性/方法
+        // var obj = {成员名称：值，成员名称：值，成员名称：值。。。}
+        var dog = {}; // 创建一个空对象
+        console.log(dog); // Object {}
+
+        // 对象创建已经有“默认成员”
+        var cat = {'color':'gray',age:3,climb:function(){console.log('在爬树')}};
+        console.log(cat);  // Object { color="gray",  age=3,  climb=function()}
+
+        // A 对象访问成员：对象.成员名称  或  对象[成员名称]
+        console.log(cat.color);  // gray
+        console.log(cat['age']);  // 3
+        cat.climb();  // 在爬树
+
+        // B 给对象丰富成员：
+        // 对象.名称 = 值；
+        // 对象[名称] = 值；
+        cat.sex = 'gong';
+        cat['face'] = 'circle';
+        console.log(cat.sex);  // gong
+        console.log(cat.face); // circle
+        console.log(cat);  // 	Object { color="gray",  age=3,  sex="gong",  更多...}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

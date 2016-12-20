@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件作用对象</title>
+    <style type="text/css">
+        h1{ width: 300px; height: 2000px; background-color: pink;}
+        div{ width: 400px; height: 300px; background-color: hotpink;}
+        p{ width: 300px; height: 200px; background-color: cyan;}
+        span{ display: inline-block; width: auto; height: 100px; background-color: aquamarine;}
+    </style>
+</head>
+<body>
+<h1>事件作用对象</h1>
+
+<div>
+    <p>
+        <span>Today is Friday!</span>
+    </p>
+</div>
+
+<script type="text/javascript">
+    //①鼠标事件对象获得坐标信息
+    var hh = document.getElementsByTagName('h1')[0];
+    //主流浏览器（包括IE9以上），事件对象就是事件处理函数的第一个形参
+    hh.onclick = function(evt){
+        console.log(evt.clientX+'------'+evt.clientY);   //获得鼠标相对dom区域的坐标
+        console.log(evt.pageX+'------'+evt.pageY);      // 获得鼠标相对dom区域的坐标（给考虑滚动条距离）
+        console.log(evt.screenX+'------'+evt.screenY);  // 获得鼠标相对屏幕区域的坐标
+
+    };
+    //②阻止事件流
+    var sp = document.getElementsByTagName('span')[0];
+    var pt = document.getElementsByTagName('p')[0];
+    var dv = document.getElementsByTagName('div')[0];
+    // sp.onclick = function(){}; dom1级事件设置
+    // addEventListener(事件类型,事件处理,事件流参数true捕捉型/false冒泡型（默认类型）)
+    // 阻止“捕捉型”没有意义，为了捕捉比较有意义，只考虑“冒泡型”即可。
+    sp.addEventListener('click',function(evt){
+        console.log('this is a span tag');
+        evt.stopPropagation(); // 执行完console.log,阻止后面的事件再执行
+    },false);
+    pt.addEventListener('click',function(evt){
+        console.log('this is a p tag');
+        evt.stopPropagation();
+    },false);
+    dv.addEventListener('click',function(evt){
+        console.log('this is a div tag');
+        evt.stopPropagation();
+    },false);
+</script>
+</body>
+</html>

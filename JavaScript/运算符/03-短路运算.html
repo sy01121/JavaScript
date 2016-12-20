@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逻辑运算符的短路运算</title>
+    <script type="text/javascript">
+        var addr = "beijing";
+        var age = 23;
+        var height = 170;
+        var name = "jack";
+        var ismoney = 0;
+
+        //逻辑短路效果
+        console.log(addr || name);  //[beijing]addr已经可以决定最终结果，后边的name不给执行，其被短路
+
+        //alert的返回值是undefined
+        console.log(alert('hello'));//undefined  function alert(){xxxxxx return}
+
+        console.log(height && alert(123)); //undefined，有看到弹出框，两者都给执行，没有短路
+        console.log(ismoney && alert(456));  //0 ,没有看到弹出框，其被短路
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点删除</title>
+</head>
+<body>
+<h2>节点删除</h2>
+<ul id="north">
+    <li city="沈阳" id="ning">辽宁</li>
+    <li city="济南" id="shan">山东</li>
+    <li city="长春" id="lin">吉林</li>
+</ul>
+<ul id="south">
+    <li city="杭州" id="jiang">浙江</li>
+</ul>
+
+<input type="button" value="删除节点" onclick="f1()">
+</body>
+</html>
+<script type="text/javascript">
+    function f1(){
+        //删除“山东”节点
+        var shan = document.getElementById('shan');
+        shan.parentNode.removeChild(shan);
+    }
+</script>

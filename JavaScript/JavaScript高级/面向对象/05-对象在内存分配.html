@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象在内存分配</title>
+    <script type="text/javascript">
+        // 对象在内存分配
+        function Animal(){
+            this.age = 5;
+            this.height = 110;
+            this.run = function(){
+                console.log('在后院跑');
+            };
+        };
+
+        var cat = new Animal();
+        var dog = new Animal();
+        var tiger = cat; // 对象赋值（引用赋值）结果：cat 和 tiger 共同指引一个对象
+
+        tiger.height = 150;
+        console.log(cat.height); // 150
+    </script>
+</head>
+<body>
+
+</body>
+</html>

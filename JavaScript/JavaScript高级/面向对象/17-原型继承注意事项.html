@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承注意事项</title>
+    <script type="text/javascript">
+        // ① "本身"和"继承对象"拥有同名的成员，	要使用"本身"成员
+        var pig = {weight:120,hobby:'sleep'};
+        function Dog(){
+            this.color = 'gray';
+            this.hobby = '看家护林';
+            this.mingzi = '旺财'
+        }
+        var black = new Dog();
+        // 构造函数Dog继承对象pig
+        Dog.prototype = pig;
+        console.log(black);
+        console.log(black.hobby); // 看家护林
+    </script>
+</head>
+<body>
+
+</body>
+</html>

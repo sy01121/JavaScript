@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>return对实例化对象的影响</title>
+    <script type="text/javascript">
+        // return对实例化对象的影响:
+        // 对创建对象没有影响，不过return后续代码不给执行，后续成员丢失
+        function Cat(){
+            this.name = 'tom';
+            this.climb = function(){ console.log('在爬树')};
+            // 构造函数内部有return，new 函数()结果是‘return的返回值’还是‘对象’
+            return 123; // 作用：阻止函数执行
+            this.age = 5;
+            this.leg = 4;
+        };
+        var bosi = new Cat(); // new Cat()属构造函数，构造函数的返回结果都是对象
+        var jiafei = Cat();
+        console.log(jiafei); // 跟普通函数无差别，返回return的返回值 ---123
+        //console.log(bosi); // 没return前 Cat {name: "tom", age: 5, leg: 4}
+        console.log(bosi); // Cat {name: "tom"}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得元素节点方式3</title>
+</head>
+<body>
+<h2>获得元素节点方式3</h2>
+<input type="text" id="username" name="mingzi" value="xiaoming"><br>
+<input type="text" id="useremail" name="youxiang" value="xiaoming@163.com"><br>
+<input type="text" id="usertel" name="dianhua" value="13268794832"><br>
+
+<script type="text/javascript">
+    //（3）document.getElementsByName(name属性值)
+    //     返回一个“集合列表（数组）对象”（不考虑元素对象个数的）
+    var email = document.getElementsByName('youxiang');
+    console.log(email); // NodeList[input#useremail]
+
+    console.log(email[0]); // <input type="text" id="useremail" name="youxiang" value="xiaoming@163.com">
+    console.log(email.item(0)); // <input type="text" id="useremail" name="youxiang" value="xiaoming@163.com">
+</script>
+</body>
+</html>

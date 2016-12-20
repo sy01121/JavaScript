@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域链作用</title>
+    <script type="text/javascript">
+        // 3. 变量的作用域是“声明时”决定的，而不是运行时
+        //分析其代码执行顺序即可，函数声明第一个执行，其他代码顺序执行
+        var subject = 'php'; // B
+        function f1(){ // A
+            console.log('科目：'+subject);
+        };
+        subject = 'html'; // C
+        f1(); // D 科目：html
+        subject = 'java'; // E
+        f1(); // F 科目：java
+    </script>
+</head>
+<body>
+
+</body>
+</html>

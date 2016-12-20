@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历数组</title>
+    <script type="text/javascript">
+        // 遍历数组
+        var animal = new Array('dog','pic','cat','duck');
+        animal['guangxi'] = "monkey";
+        animal.north = "wolf";
+        animal[4] = "tiger";
+        animal[20] = "panda";
+
+        // (1) for循环遍历
+        //     为了遍历效果最佳，数组下标最好是0/1/2/3...规则连续的。
+        //for(i=0;i<animal.length;i++){
+            //console.log(i+"----"+animal[i]);
+        //}
+
+        // (2) for-in遍历，同时可以遍历“数组”和“对象”，并且下标跳跃也没有关系
+        // for(var k in 数组/对象)
+        for(var k in animal){
+            console.log(k+"----"+animal[k]);
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

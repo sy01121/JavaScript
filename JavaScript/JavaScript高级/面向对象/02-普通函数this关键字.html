@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>普通函数里使用this关键字</title>
+    <script type="text/javascript">
+        //普通函数可以使用this关键字，如下：
+        function f1(){
+            // this代表调用f1函数的当前对象 window
+            this.subject = 'php';
+            this.banji = 'php0609';
+        };
+        window.f1();
+        //f1()函数执行完毕，会给系统增加两个“全局变量”，subject/banji
+        console.log(subject); // php
+        var f = new f1();
+        console.log(f); // f1 {subject: "php", banji: "php0609"}
+        console.log(f.subject); // php
+    </script>
+</head>
+<body>
+
+</body>
+</html>

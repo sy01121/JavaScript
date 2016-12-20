@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域链作用</title>
+    <script type="text/javascript">
+        // 内部环境 可以访问 外部环境 的变量 反之不然
+        var week = 'Friday';
+        function f1(){
+            console.log('星期：'+week); // 星期：Friday
+            var weather = 'sunshine';
+        };
+        f1();
+        console.log('天气：'+weather); // ReferenceError: weather is not defined
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承-继承单一成员</title>
+    <script type="text/javascript">
+        function Tiger(){
+            this.color = 'yellow';
+            this.leg = 4;
+            this.act = '猛虎下山';
+        }
+        // 原型继承：继承单一成员（构造函数实现继承）
+        // （可以同时继承多个）
+        Tiger.prototype.weight = 270;
+        Tiger.prototype.run = function(){
+            console.log('在森林里奔跑');
+        };
+        var east = new Tiger();
+        console.log(east);  // 对象成员：本身的 、 继承的
+        east.run(); // 在森林里奔跑
+    </script>
+</head>
+<body>
+
+</body>
+</html>

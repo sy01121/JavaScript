@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用正则</title>
+    <script type="text/javascript">
+        // 被匹配的大量字符串、正则表达式
+        var str = 'hello world';
+        //var reg = /具体正则内容/;
+        var reg = /world/;
+        var reg1 = /beijing/;
+
+        // 正则匹配
+        // 被匹配字符串.match(正则)
+        var rst = str.match(reg);
+        var rst1 = str.match(reg1);
+        console.log(rst);
+        // rst数组对象 Array[1] ["world", index: 6, input: "hello world"]
+        console.log(rst1);
+        console.log(rst[0]); // world
+    </script>
+</head>
+<body>
+
+</body>
+</html>

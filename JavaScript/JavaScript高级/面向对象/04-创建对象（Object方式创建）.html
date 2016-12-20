@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象——Object方式创建</title>
+    <script type="text/javascript">
+        // ③ Object方式创建对象
+        var tiger = {color:'yellow and black'};
+        console.log(tiger); // Object {color: "yellow and black"}
+        //以上tiger对象通过输出可以看出，其构造器是Object，如果采用new 函数()方式实例化
+        // 就可以是 var tiger = new Object();
+
+        var cat = new Object(); // 不能直接定义默认成员
+        cat.leg = 4; // 丰富成员
+        console.log(cat); // Object {leg: 4}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

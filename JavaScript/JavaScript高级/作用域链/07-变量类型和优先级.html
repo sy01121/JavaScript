@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量类型和优先级</title>
+    <script type="text/javascript">
+        // 执行环境可以访问的变量类型和优先顺序
+
+        // 内部变量>>>>内部函数>>>>形参>>>>外部变量（内部变量、形参、函数）
+
+        var weather = 'sun';    // ①外部变量
+        function f1(weather){
+            var weather = 'haze';
+            function weather(){
+                console.log('123');
+            };                     // f1 里的内部变量、内部函数、形参 对f2来说都是外部变量
+            function f2(weather){  // ②形参
+
+                var weather = 'rain';  // ④内部变量（内部函数跟内部变量放在一起，状态是固定的，函数声明先执行，
+                                       //           内部变量赋值后执行，覆盖函数声明，根据执行顺序）
+                function weather(){  // ③内部函数
+                    console.log('天气真热');
+                };
+                console.log('天气：'+weather);
+            };
+            f2('snow');
+        }
+        f1();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

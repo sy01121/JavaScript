@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch条件判断表达式用法</title>
+    <script type="text/javascript">
+        //switch条件判断表达式用法
+        //switch内部的参数与case的值进行“全等于===”（比较值的类型和数据大小）判断
+        var age=55;
+        switch (true){
+        // 参数由true改为age 与 age>=1 && age<10 比较值的类型和数据大小均不同
+            case age>=1 && age<10:
+            //age>=1比较运算符结果是Boolean 所以 && 逻辑与结果Boolean
+                console.log('儿童');
+                break;
+            case age>=10 && age<20:
+                console.log('少年');
+                break;
+            case age>=20 && age<30:
+                console.log('青年');
+                break;
+            case age>=30 && age<60:
+                console.log('壮年');
+                break;
+            case age>=60 && age<90:
+                console.log('中年');
+                break;
+            case age>=90 && age<120:
+                console.log('中老年');
+                break;
+            default :
+                console.log('老年');
+                break;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

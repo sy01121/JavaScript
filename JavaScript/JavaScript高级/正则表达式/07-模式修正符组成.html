@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模式修正符组成</title>
+    <script type="text/javascript">
+        // 模式修正符
+        // i--------->忽略大小写
+        // g-------->全局匹配（进行全局匹配的时候不给体现“模式单元”内容）
+        var str = 'Today2015 is2016 Monday2017';
+        var reg = /[a-z]+/; // ["oday", index: 1, input: "Today is Monday"]
+        var reg = /[a-z]+/i; // ["Today", index: 0, input: "Today is Monday"]
+        var reg = /[a-z]+/ig; // ["Today", "is", "Monday"]
+        var reg = /[a-z]+[0-9]+/ig; // ["Today2015", "is2016", "Monday2017"]
+        var reg = /[a-z]+([0-9]+)/; // ["oday2015", "2015", index: 1, input: "Today2015 is2016 Monday2017"]
+        var reg = /[a-z]+([0-9]+)/ig; // ["Today2015", "is2016", "Monday2017"] 忽略大小写的全局匹配
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

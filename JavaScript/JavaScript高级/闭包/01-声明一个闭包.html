@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明一个闭包</title>
+    <script type="text/javascript">
+        // 声明一个闭包
+
+        function f1(){
+            var week = 'Sunday';
+            function f2(){
+                console.log('星期：'+week);
+            };
+            return f2;
+        };
+        var ff = f1();  // f1执行后会返回f2函数而非f2()的执行结果，函数（对象）对ff进行赋值（引用赋值）
+        ff();   //  星期：Sunday
+
+        // 以上代码已经形成一个闭包，其是一个函数，就是ff
+    </script>
+</head>
+<body>
+
+</body>
+</html>

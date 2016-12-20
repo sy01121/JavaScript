@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AO活动对象</title>
+    <script type="text/javascript">
+        // 变量作用域链
+        var banji = 'php0609';  // 全局变量
+        console.log('now：'+banji);  // now：php0609
+        function f1(){
+//            var banji = '.net0903';
+            console.log('f1：'+banji);
+            function f2(){
+//                var banji = 'html0701';
+                var person = 80;
+                console.log('f2：'+banji);
+                console.log('f2_number：'+person); // f2_number：80
+                function f3(){
+//                    var banji = 'java0507';
+//                    console.log('f3：'+banji); // f3：java0507
+//                    console.log('f3：'+banji); // f3：html0701
+//                    console.log('f3：'+banji); // f3：.net0903
+                    console.log('f3：'+banji);
+                    console.log('f3_number：'+person); // f3_number：80
+                };
+                f3(); // f3：php0609
+            };
+            f2(); // f2：php0609
+        };
+        f1(); // f1：php0609
+
+        /**
+         * 在f3环境内部访问banji变量
+         * 首先在f3当前环境寻找该变量，如果没有则向上级环境寻找，如果再没有继续向上级环境寻找。。。
+         * 直到找到全局环境为止（代码阅读过程，实际代码只在本身环境（f3）中找即可）
+         *
+         * 以上方式在f3内部获得一个变量，貌似是一个“动态”寻找过程，实则不然，其实是一个“固态”过程
+         *在一个环境内部获得一个变量，该变量早早地已经“固化”为本身环境的AO活动对象的属性
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

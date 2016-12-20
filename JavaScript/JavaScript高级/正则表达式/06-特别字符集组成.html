@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>特别字符集组成</title>
+    <script type="text/javascript">
+        // 没有特殊说明就是“单次”匹配
+        // 从字符串的左边找到第一个符合模式的内容即可
+
+        // ():标记一个表达式的开始和结束位置
+        // ()小括号称为“模式单元”
+        // 作用：
+        // ① 提高子表达式的优先级
+        var str = 'google';
+        var reg = /go+gle/;// ["google", index: 0, input: "google"]
+        var reg = /(goo)+gle/// ["google", "goo", index: 0, input: "google"]
+        var str = 'goooogle';
+        var reg = /(goo)+gle/;//null
+        var str = 'googoogoogoogoogoogoogoogoogoogoogle';
+        var reg = /(goo)+gle/;//null
+
+        // ② 从一个大的字符串里面拆分小的字符串出来
+        var str = '<span class="tempNum" id="temp" n="101120501">21</span><span class="tempDu">°</span>'
+        var reg = /<.*>(.*)<.*><.*>(.*)<.*>/;
+
+        var rst = str.match(reg);
+        console.log(rst);
+        console.log('天气：'+rst[1]+rst[2]); // 天气：21°
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量的作用域链</title>
+    <script type="text/javascript">
+        // 变量作用域链
+        var banji = 'php0609';  // 全局变量
+        console.log('班号：'+banji);  // 班号：php0609
+        function f1(){
+            console.log('f1：'+banji);
+            function f2(){
+                console.log('f2：'+banji);
+                function f3(){
+                    console.log('f3：'+banji);
+                };
+                f3(); // f3：php0609
+            };
+            f2(); // f2：php0609
+        };
+        f1(); // f1：php0609
+    </script>
+</head>
+<body>
+
+</body>
+</html>

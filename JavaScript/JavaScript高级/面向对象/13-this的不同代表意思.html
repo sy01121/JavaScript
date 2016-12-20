@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this的不同代表意思</title>
+    <script type="text/javascript">
+        // this的不同的代表意思
+        // ① 在方法里边代表调用该方法的当前对象
+        var cat = {mingzi:'kitty',climb:function(){console.log(this.mingzi+'在爬树')}};
+        cat.climb(); // kitty在爬树
+
+        // ② 代表window对象
+        var weather = 'sun';
+        function getInfo(){
+            console.log(this.weather);
+        }
+        window.getInfo(); // sun
+
+        // ③ 在事件中代表元素节点对象
+        window.onload = function(){
+            var hh = document.getElementsByTagName('h1')[0];
+            hh.onmouseover = function(){
+                this.style.backgroundColor = 'pink';
+            };
+        };
+
+        // ④ 在call()和apply()方法使用的时候任意代表其他对象
+        var dog = {mingzi:'旺财'};
+        function getAct(){
+            console.log(this.mingzi+'走直线')
+        };
+        getAct.apply(cat); // kitty走直线
+        getAct.call(dog); // 旺财走直线
+    </script>
+</head>
+<body>
+<h1>拥有事件的元素节点对象</h1>
+</body>
+</html>

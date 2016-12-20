@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三种方式声明数组</title>
+    <script type="text/javascript">
+        // 三种方式声明数组
+        // 1. var arr = [元素,元素,元素]
+        var color = ['pink','gold','orange','yellow'];
+        color[1] = 'blue';
+        color[4] = 'red';
+        console.log(color); // ["pink", "gold", "orange", "yellow"]
+        // 通过下标访问数组元素内容：数组[下标]
+        console.log(color[2]); // orange
+
+        // 2. var arr = new Array(元素,元素,元素)；
+        var animal = new Array('dog','pic','cat');
+        console.log(animal); //["dog", "pic", "cat"]
+
+        // 3. var arr = new Array();先声明好数组，后期再添加元素
+        var city = new Array();
+        // 给数组添加元素；数组[下标] = 值；
+        city[0] = 'beijing';
+        city[1] = 'shanghai';
+        city['liaoning'] = 'shenyang';//给city对象声明一个“成员属性”
+        city[2] = null;
+        city[3] = 'chongqing';
+        city['henan'] = 'zhengzhou'; //给city对象声明一个“成员属性”
+        console.log(city); //["beijing", "shanghai", null, "chongqing"]
+
+        //对象访问成员（两种方式）：对象.成员名称  对象[成员名称]
+        console.log(city.liaoning); // shenyang
+        // console.log(city.1);错误 “1”不是成员名称，不符合变量的命名规则
+        console.log(city[1]);  // shanghai
+        console.log(city['henan']); // zhengzhou
+    </script>
+</head>
+<body>
+
+</body>
+</html>

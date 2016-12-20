@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-location对象</title>
+    <script type="text/javascript">
+        function f1(){
+            //  获取浏览器地址栏信息
+            console.log(location.href);   // http://localhost:63342/JavaScript/JavaScript%E9%AB%98%E7%BA%A7/28-BOM-location%E5%AF%B9%E8%B1%A1.html
+            console.log(window.location.href);  // http://localhost:63342/JavaScript/JavaScript%E9%AB%98%E7%BA%A7/28-BOM-location%E5%AF%B9%E8%B1%A1.html
+        };
+        function f2(){
+          // 设置地址栏信息（通过js使得页面发生跳转）
+//            alert('操作成功！');
+//            window.location.href = './26-register注册.html';
+//            window.location.href = window.location.href;  // 模仿刷新
+            location.href = location.href; // 模仿刷新
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="获取" onclick="f1()">
+<input type="button" value="设置" onclick="f2()">
+</body>
+</html>

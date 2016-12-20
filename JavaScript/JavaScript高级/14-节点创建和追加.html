@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点创建和追加</title>
+</head>
+<body>
+<h2>节点创建和追加</h2>
+<ul id="north">
+    <li city="沈阳" id="ning">辽宁</li>
+    <li city="济南" id="shan">山东</li>
+    <li city="长春" id="lin">吉林</li>
+</ul>
+<ul id="south">
+    <li city="杭州" id="jiang">浙江</li>
+</ul>
+
+<input type="button" value="已有节点操作" onclick="f1()">
+</body>
+</html>
+<script type="text/javascript">
+    // “已有节点”的追加和操作（会发生物理位置移动现象）
+    function f1(){
+        // 获得已有节点
+        var ning = document.getElementById('ning');
+        // 获得被追加的父节点<ul id="south"></ul>
+        var south = document.getElementById('south');
+
+        // "已有节点"追加（会发生物理位置移动现象）
+        //south.appendChild(ning);
+        // "已有节点"追加（“辽宁”放到“浙江”之前）
+        // 找到已有节点
+        //var jiang = document.getElementById('jiang');
+        //south.insertBefore(ning,jiang);
+        // "已有节点"替换（“辽宁”替换“吉林”）
+        // 找到已有节点
+        var lin = document.getElementById('lin');
+        // 找到被追加的父节点<ul id="north"></ul>
+        var north = document.getElementById('north');
+        north.replaceChild(ning,lin);
+
+    }
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域链作用（变量必须先声明，后使用）</title>
+    <script type="text/javascript">
+        // ①变量必须“先声明、后使用”（函数由于有“预加载”，其可以“先使用、后声明”）
+//        var subject = 'php';
+//        console.log(subject); // php
+//        var subject = 'php';  // 先console使用，后声明，结果 undefined
+
+        // 函数
+        f1();
+        function f1(){
+            console.log('I am f1 function'); // I am f1 function
+        };
+
+        // 同名“变量”和“函数”同时存在的情况
+        // 分析其执行顺序即可，函数声明第一个执行，其他代码顺序执行
+        subject(); // B I am sub function
+        var subject = 'linux'; // C
+        console.log(subject); // D linux
+
+//        subject(); //C subject is not a function
+        function subject(){ //A
+            console.log('I am sub function');
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

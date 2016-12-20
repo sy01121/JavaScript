@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+    <script type="text/javascript">
+        function Cat(){
+            this.weapon = '伶牙俐齿';
+        }
+        var kitty = new Cat();
+        function Tiger(){
+            this.color = 'yellow and black';
+        }
+        Tiger.prototype = kitty;
+        var north = new Tiger(); // north:color weapon
+        function Wolf(){
+            this.eye = '闪闪发光';
+        }
+        Wolf.prototype = north;
+        var seven = new Wolf(); // seven:eye color weapon
+        function Dog(){
+            this.hobby = '看家护林';
+        }
+        Dog.prototype = seven;
+        var wangcai = new Dog(); // hobby eye color weapon
+        console.log(wangcai);
+        console.log(wangcai.constructor); // fuction Cat(){ this.weapon = '伶牙俐齿';}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

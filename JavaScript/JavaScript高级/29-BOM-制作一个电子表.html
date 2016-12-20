@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电子表</title>
+    <script type="text/javascript">
+        function showtime(){
+            // 客户端获得时间信息（年月日-时分秒）
+            var mytime = new Date();
+//            console.log(mytime);
+
+            var year = mytime.getFullYear();
+            var month = mytime.getMonth();
+            var qi = mytime.getDay();
+
+            var hour = mytime.getHours();
+            var minute = mytime.getMinutes();
+            var second = mytime.getSeconds();
+
+            // 2016-08-29 17:08:23
+            var timeinfo = year+'-'+month+'-'+qi+' '+hour+':'+minute+':'+second;
+//            console.log(timeinfo);
+
+            document.getElementById('result').innerHTML = timeinfo;
+        };
+
+        // 找不到<div id="result"></div>，利用加载事件
+        var timer = '';  // 声明一个全局变量
+        window.onload = function(){
+            start();
+        };
+        function stop(){
+            clearInterval(timer);   // 停止间隔函数
+        };
+        function start(){
+            // setInterval()函数的返回值是一个数字
+            timer = window.setInterval('showtime()',1000); //间隔函数
+            console.log(timer);  // 1
+        };
+    </script>
+</head>
+<body>
+<h1>电子表</h1>
+<div id="result"></div>
+<input type="button" value="停止" onclick="stop()">
+<input type="button" value="开始" onclick="start()">
+</body>
+</html>

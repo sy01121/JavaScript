@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数</title>
+    <script type="text/javascript">
+        //arguments 关键字 在函数内部可以接受传递进来的实参信息
+        //                可以通过数字下标形式，访问实参信息
+        //                其有length属性，可以获得实参的个数
+        function getInfo(){
+            //根据传递参数个数做灵活处理
+            var num=arguments.length;
+            //以下是利用arguments关键字模仿“重载效果”
+            if(num==0){
+                console.log('个人信息');
+            }else if(num==1){
+                console.log('名字：'+arguments[0]);
+            }else if(num==2){
+                console.log('名字：'+arguments[0]+'-年龄：'+arguments[1]);
+            }else if(num>=3){
+                console.log('名字：'+arguments[0]+'-年龄：'+arguments[1]+'-城市：'+arguments[2]);
+            }
+            //console.log(arguments);
+        }
+        //同一个函数调用的时候，由于传递不同个数的实参，最终导致的结果也不一样
+        //其是模仿方法重载（定义了许多名称一致的方法，这些方法的参数个数（或参数类型）不一样，这些方法就构成重载）
+        //在php和js里边没有“重载”
+        getInfo();
+        getInfo('jim');
+        getInfo('tom',23);
+        getInfo('linken',32,'newyork');
+        getInfo('linken',32,'newyork','tom',23);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

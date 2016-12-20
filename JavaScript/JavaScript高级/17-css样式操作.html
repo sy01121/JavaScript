@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css样式操作</title>
+    <!-- 内部  -->
+    <style type="text/css">
+        h2{color:#fff;}
+    </style>
+    <!-- 外部  -->
+    <link href="17.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!-- 样式类型：行内 内部 外部  -->
+<!-- 行内  -->
+<h2 style="width: 300px; height: 200px; background-color: #0ff">css样式操作</h2>
+<input type="button" value="获取css" onclick="f1()">
+<input type="button" value="设置css" onclick="f2()">
+
+<script type="text/javascript">
+    // 设成全局变量 所有方法都能用
+    var hh = document.getElementsByTagName('h2')[0];
+    // 获取css（只能获得“行内”样式）
+    function f1(){
+        console.log(hh.style.width);
+        console.log(hh.style.height);
+        console.log(hh.style.backgroundColor);
+        console.log(hh.style.color);  // 为空(内部样式获取不到)
+        console.log(hh.style.fontSize);// 为空（外部样式获取不到）
+    };
+    // 设置（修改）css（只是设置“行内”样式）
+    // 有则修改、无则创建
+    function f2(){
+        hh.style.width = '500px';
+        hh.style.height = '400px';
+        hh.style.backgroundColor = '#f0f';
+        hh.style.color = '#000';
+    };
+</script>
+</body>
+</html>

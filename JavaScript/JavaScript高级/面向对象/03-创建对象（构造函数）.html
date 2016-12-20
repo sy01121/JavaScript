@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象——构造函数方式来创建</title>
+    <script type="text/javascript">
+        // ② 构造函数方式创建对象
+        // var obj = new 函数();
+        function Animal(nm){
+            // 以下两个成员是每个被实例化对象拥有的“默认成员”
+            this.height = 120;
+            this.color = 'black';
+            this.name = nm;
+        };
+        Animal();
+        console.log(height); // 120 (Animal函数跟普通函数是一样的，没有区别)
+        //会使得Animal发生自动调用
+        //因此该方式称为“构造函数”方式创建对象
+        // pig实例化对象的构造器是Animal
+        var pig = new Animal('荷兰小猪');
+        console.log(pig); // Animal {height: 120, color: "black", name: "荷兰小猪"}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

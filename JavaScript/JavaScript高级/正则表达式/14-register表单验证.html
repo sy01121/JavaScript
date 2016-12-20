@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register表单验证</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            // 页面加载完毕给form表单设置submit提交事件
+            var fm = document.getElementsByTagName('form')[0];
+            fm.onsubmit = function(){
+                //验证邮箱是否合法
+
+                //获得用户输入的邮箱信息
+                var email = document.getElementById('useremail').value;
+                var emailreg = /^[a-zA-Z1-9][a-zA-Z\d\._]+@[0-9a-z]+(\.[a-z]+)+$/;
+                if(email.match(emailreg)===null){
+                    alert('邮箱格式不正确！');
+                    return false;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+<h2>注册表单</h2>
+<form method="post" action="09.php">
+    <p>用户名：<input type="text" id="username"></p>
+    <p>邮箱：<input type="text" id="useremail"></p>
+    <p>手机号码：<input type="text" id="usertel"></p>
+    <p><input type="submit" value="注册" ></p>
+</form>
+</body>
+</html>

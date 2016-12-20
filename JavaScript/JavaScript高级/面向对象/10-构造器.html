@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造器</title>
+    <script type="text/javascript">
+        // 获得对象的构造器
+        function Dog(){
+            this.color = 'yellow';
+            this.age = 5;
+        };
+        var wangcai = new Dog();
+        console.log(wangcai.constructor); // Dog()
+
+        function f1(){
+            console.log(123);
+        }
+        f1(); // 123
+        //函数就是对象，因此其应该存在构造器
+        console.log(f1.constructor); // Function() { [native code] }
+        // 通过函数构造器Function实例化一个函数出来
+        // 例如：function getInfo(addr,age){console.log('地址：'+addr+'---年龄：'+age)}
+        //  语法：new Function(形参，形参，形参。。。，函数体)
+        var getInfo = new Function('addr','age',"console.log('地址：'+addr+'---年龄：'+age)"); //必须加引号
+        getInfo('beijing',2000);  // 地址：beijing---年龄：2000
+    </script>
+</head>
+<body>
+
+</body>
+</html>

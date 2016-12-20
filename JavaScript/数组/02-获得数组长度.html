@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得数组长度length</title>
+    <script type="text/javascript">
+        // 获得数组元素个数length
+        // 数组.length:获得数组元素“最大下标”加1信息
+        // 获得正确的数组元素个数：下标必须是0/1/2/3...规则连续的
+        var animal = new Array('dog','pic','cat','duck');
+        // 定义animal数组对象的“成员属性”不属于“数组元素”
+        animal['guangxi'] = "monkey";
+        animal.north = "wolf";
+
+        animal[4] = "tiger";
+        animal[20] = "panda";
+
+        console.log(animal.length); // 21
+    </script>
+</head>
+<body>
+
+</body>
+</html>

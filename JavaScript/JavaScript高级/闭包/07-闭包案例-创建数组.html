@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包案例-创建数组</title>
+    <script type="text/javascript">
+        //利用闭包实现制作多个独立的数组元素函数
+        var arr = new Array;
+        for(var i=0; i<4; i++){
+            //arr[i] = 闭包;
+            arr[i] = f1(i); // 通过f1()闭包机制，生成多个独立函数,并且每个函数的i变量都是不同值
+        };
+        /*
+        * 以上for循环+闭包机制，会创建以下4个function
+        * arr[0] = function(){console.log(0);};
+        * arr[1] = function(){console.log(1);};
+        * arr[2] = function(){console.log(2);};
+        * arr[3] = function(){console.log(3);};
+        * */
+        function f1(n){
+            function f2(){
+                console.log(n);
+            };
+            return f2;
+        };
+
+        arr[2](); // 2
+        arr[1](); // 1
+        arr[0](); // 0
+        arr[3](); // 3
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点创建和追加</title>
+</head>
+<body>
+<h2>节点创建和追加</h2>
+<ul>
+    <li city="沈阳">辽宁</li>
+    <li city="济南" id="shan">山东</li>
+    <li city="杭州">浙江</li>
+</ul>
+
+<input type="button" value="追加" onclick="f1()">
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * 给ul只追加一个li
+     * <li city="广州">广东</li>
+     */
+    function f1(){
+        // 创建对应的元素节点、文本节点、属性信息
+        var lii = document.createElement('li');
+        var txt = document.createTextNode('广东');
+        lii.setAttribute('city','广州');
+        // 给lii追加txt文本节点
+        lii.appendChild(txt);
+
+        //  给ul追加lii（“广东”被追加到山东前边）
+        //var shan = document.getElementsByTagName('li')[1];
+        var shan = document.getElementById('shan');  // 山东节点
+        document.getElementsByTagName('ul')[0].insertBefore(lii,shan);
+    }
+</script>

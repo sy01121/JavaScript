@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建子窗口</title>
+    <script type="text/javascript">
+        function f1(){
+            // open(被打开页面,打开形式，页面规格(打开窗口规格)[不设置就是全部])
+            //      打开形式：类似a标签的target属性 _self/_top/_blank/frame的name属性值
+            open('./30-son.html','_blank','width=510px,height=235px,left=120px,top=320px,menubar=yes');
+        };
+    </script>
+</head>
+<body>
+<h1>open()方法创建子窗口</h1>
+<input type="button" value="创建子窗口" onclick="f1()">
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象调用其他对象方法</title>
+    <script type="text/javascript">
+        // 对象调用其他对象方法
+
+        var cat = {mingzi:'波斯猫',eat:function(){
+            console.log(this.mingzi+'在吃鱼');
+        }};
+        cat.eat(); // 波斯猫在吃鱼
+        var tiger = {mingzi:'东北虎',act:function(){console.log('猛虎下山')}};
+        // 使得tiger也会去调用eat方法
+        // 解决：给tiger丰富一个成员，成员值就是cat.eat的名称（引用）
+        tiger.chi = cat.eat; // eat函数对象的引用赋值
+        tiger.chi(); // 东北虎在吃鱼
+    </script>
+</head>
+<body>
+
+</body>
+</html>

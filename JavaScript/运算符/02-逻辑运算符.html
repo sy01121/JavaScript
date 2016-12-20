@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逻辑运算符</title>
+    <script type="text/javascript">
+        //逻辑运算符：  &&  ||  !
+        var addr = "beijing";
+        var age = 23;
+        var height = 170;
+        var name = "jack";
+        var ismoney = 0;
+
+        //A. &&  和  ||  最终结果是“其中一个取决定性作用的操作数”
+        //原则上逻辑运算符两边的操作数要求是Boolean布尔信息
+        //如果不是布尔数据要进行自动类型转换
+        //  ""  0  []  null 等等信息变为false假
+        //实体变量信息要变为true真
+        console.log(addr&&age);     //23
+        console.log(addr||age);     //beijing
+
+        console.log(name && ismoney);   //0
+        //比较运算符 的返回结果是“布尔”结果
+        console.log(age>20 && height>165);   //true
+
+        //B. ！取非运算符的最终结果是“布尔”结果
+        console.log(!ismoney); //true
+        console.log(!addr);   //false
+    </script>
+</head>
+<body>
+
+</body>
+</html>

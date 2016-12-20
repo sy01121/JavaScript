@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取文本节点</title>
+</head>
+<body>
+<h2>获得文本节点</h2>
+</body>
+</html>
+<script type="text/javascript">
+    // 元素对象节点.firstChild/lastChild;
+    var hh = document.getElementsByTagName('h2')[0];
+    console.log(hh.firstChild); // <TextNode textContent="获得文本节点">
+
+    // 通过文本节点 获得 其对应的文本信息
+    console.log(hh.lastChild.nodeValue); //获得文本节点对应的文本信息
+    // 获得节点类型
+    console.log(hh.lastChild.nodeType);  // 3 文本节点
+</script>

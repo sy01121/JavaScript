@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全部变量和局部变量</title>
+    <script type="text/javascript">
+        var weather = 'sun';
+        var week = 'Sunday';
+        // 全局变量 是 活动对象window的直接成员属性
+        console.log(window.weather);  // sun
+        console.log(window.week);  // Sunday
+        function f1(){   // 也是全局环境对应的活动对象window的直接成员属性
+            console.log('123');
+        };
+        window.f1();  // 123
+
+        window.onload = function(){
+            var p1 = window.document.getElementById('s_p'); // document也是全局变量
+            console.log(p1);   // <p id="s_p"></p>
+        };
+    </script>
+</head>
+<body>
+<p id="s_p"></p>
+</body>
+</html>

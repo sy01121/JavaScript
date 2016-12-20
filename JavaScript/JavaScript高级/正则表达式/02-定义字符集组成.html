@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义字符集组成</title>
+    <script type="text/javascript">
+        //没有特殊说明就是“单次”匹配
+        //从字符串左边找到第一个符合模式的内容即可
+
+        // [a-e]表示a到e这些字符集中的某一个字符
+        var str = '2016-10-17Yesterday and Today'
+        var reg = /[c-g]/; // ["e", index: 1, input: "Yesterday and Today"]
+
+        // [a-z]26个小写字母之一
+        var reg = /[a-z]/; // ["e", index: 1, input: "Yesterday and Today"]
+
+        // [A-Z]26个大写字母之一
+        var reg = /[A-Z]/; // ["Y", index: 0, input: "Yesterday and Today"]
+
+        // [a-zA-Z]表示大写、小写字母中的某一个字符
+        var reg = /[a-zA-Z]/; // ["Y", index: 0, input: "Yesterday and Today"]
+
+        // [aeiou]表示aeiou这5个字符其中的某一个字符
+        var reg = /[rxoqm]/; // ["r", index: 5, input: "Yesterday and Today"]
+
+        // [a-zA-Z0-9_-]表示小写字母、大写字母、数字、_、-中的某一个字符
+        var reg = /[a-zA-Z0-9_-]/; // ["2", index: 0, input: "2016-10-17Yesterday and Today"]
+
+        // [0-9]表示0到9之间任意一个数字
+        var reg = /[0-9]/; // ["2", index: 0, input: "2016-10-17Yesterday and Today"]
+
+        // [5-9]
+        var reg = /[4-9]/; // ["6", index: 3, input: "2016-10-17Yesterday and Today"]
+
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

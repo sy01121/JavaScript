@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得元素节点方式2</title>
+</head>
+<body>
+<h2>获得元素节点方式2</h2>
+<input type="text" id="username" value="xiaoming"><br>
+<input type="text" id="useremail" value="xiaoming@163.com"><br>
+<input type="text" id="usertel" value="13268794832"><br>
+
+<script type="text/javascript">
+    //（2）document.getElementsByTagName(tag标签名称)
+    // 返回一个“集合列表（数组）对象”(不考虑元素对象个数的)
+    var hh = document.getElementsByTagName('h2');
+    console.log(hh); // HTMLCollection[h2]
+    console.log(hh[0]); // <h2>获得元素节点方式2</h2>
+    var its = document.getElementsByTagName('input');
+    console.log(its); // HTMLCollection[input#username, input#useremail, input#usertel,
+    // username: input#username, useremail: input#useremail, usertel: input#usertel]
+    console.log(its[2]); // <input type="text" id="usertel" value="13268794832">
+    console.log(its.item(1)); // <input type="text" id="useremail" value="xiaoming@163.com">
+</script>
+</body>
+</html>

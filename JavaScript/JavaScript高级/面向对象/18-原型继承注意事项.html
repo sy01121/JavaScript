@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承注意事项</title>
+    <script type="text/javascript">
+        // ② 单一成员 和 对象 同时继承，需要先继承“对象”后继承“单一成员”
+        var pig = {weight:120,hobby:'sleep'};
+        function Dog(){
+            this.color = 'gray';
+            this.hobby = '看家护林';
+            this.mingzi = '旺财'
+        }
+        // 构造函数Dog继承对象pig
+//        Dog.prototype.run = '在后院追逐跑步'; // 继承单一成员
+        Dog.prototype = pig; // 先继承对象
+//        console.log(black.run); //  undefined （先继承“单一成员”后继承“对象”，“单一成员”被继承对象的成员覆盖）
+//        console.log(black.weight); //  120
+        Dog.prototype.run = '在后院追逐跑步'; // 后 继承单一成员
+        var black = new Dog();
+        console.log(black); // 对象成员：本身的、继承对象的、继承单一成员的
+        console.log(black.run); // 在后院追逐跑步
+        console.log(black.weight); //  120
+    </script>
+</head>
+<body>
+
+</body>
+</html>

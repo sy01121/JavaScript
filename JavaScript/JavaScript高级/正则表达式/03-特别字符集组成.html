@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>特别字符集组成</title>
+    <script type="text/javascript">
+        //没有特殊说明就是“单次”匹配
+        //从字符串左边找到第一个符合模式的内容即可
+
+        //*：其前面那个单元出现0次或以上（任意次数）
+        var str = '2016-10-17';
+        var reg = /[0-9]*/;  // ["2016", index: 0, input: "2016-10-17"]
+        var str = 'Today is 810';
+        var reg = /[0-9]*/; // ["", index: 0, input: "Today is 810"] 字符“T”的位置出现了0次数字
+        // 出现 810
+        var reg = /[0-9]+/; // ["810", index: 9, input: "Today is 810"]
+
+        // +：其前面那个单元出现1次或以上
+        // "google"中的"o"出现至少1次
+        var str = 'google';
+        var reg = /go+gle/; // ["google", index: 0, input: "google"]
+        var str = 'gogle';
+        var reg = /go+gle/; // ["gogle", index: 0, input: "gogle"]
+        var str = 'ggle';
+        var reg = /go+gle/; // null
+        var str = 'ggle';
+        var reg = /go*gle/; // ["ggle", index: 0, input: "ggle"]
+        var str = '2016 goooooogle hello';
+        var reg = /go+gle/; // ["goooooogle", index: 5, input: "2016 goooooogle hello"]
+
+        // ?：其前面那个单元出现0次或1次
+        //"google"中第二个"o"最多只能出现一次，要么不出现（"/goo?gle/"里面"go"是一个整体"o?"是另一个整体）
+        var str = 'gogle';
+        var reg = /goo?gle/; //["gogle", index: 0, input: "gogle"]
+        var str = 'google';
+        var reg = /goo?gle/; //["google", index: 0, input: "google"]
+        var str = 'gooogle';
+        var reg = /goo?gle/; //null
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历常用方法</title>
+    <script type="text/javascript">
+        // 遍历数组
+        var animal = new Array('dog','pic','cat','duck');
+
+        // push()/pop()      在数组元素的尾部追加、删除元素
+        animal.push("tiger","wolf","tiger","pic");
+        //animal.pop();
+        //animal.pop();
+        //animal.pop();
+        console.log(animal);
+        // unshift()/shift() 在数组元素的头部追加、删除元素
+        animal.unshift("pig");
+        animal.shift();
+        console.log(animal);
+        // indexOf() 判断一个元素在数组中“左边”第一次出现的位置
+        console.log(animal.indexOf('pic')); //1
+        console.log(animal.indexOf('hello'));  //-1
+        // lastIndexOf() 判断一个元素在数组“右边”第一次出现的位置
+        console.log(animal.lastIndexOf('pic'));  // 7
+        // ingdexOf() 和 lastIndexOf() 可以判断数组是否出现指定的元素
+    </script>
+</head>
+<body>
+
+</body>
+</html>

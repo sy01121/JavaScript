@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历对象</title>
+    <script type="text/javascript">
+        var dog = {hobby:'看家护林',run:'在跑步'};
+        function Cat(){
+            this.mingzi = 'bosi';
+            this.color = 'white';
+            this.leg = 4;
+        }
+        Cat.prototype = dog;
+        var kitty = new Cat();
+        // 对象访问成员：对象[成员名称]、对象.成员名称;
+        for(var k in kitty){
+            // 区分 本身的成员 和 继承的成员
+            // 对象.hasOwnProperty(成员名称) 判断该成员是否是本身拥有的，返回Boolean值
+            if(kitty.hasOwnProperty(k)){
+                // 不能用kitty.k 会把k当成类似mingzi、color、leg成员名称，而k是成员变量
+                console.log('自己的'+k+'------'+kitty[k]);
+            }
+            else{
+                console.log('继承的'+k+'------'+kitty[k]);
+            }
+        }
+        /*
+         自己的mingzi------bosi
+         自己的color------white
+         自己的leg------4
+         继承的hobby------看家护林
+         继承的run------在跑步
+        * */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包作业</title>
+    <script type="text/javascript">
+        // 给无序列表项目设置onclick事件，弹出对应的文本信息
+        window.onload = function(){
+            var lis = document.getElementsByTagName('li');
+            for(var i=0;i<lis.length;i++){
+//                lis[i].onclick = function(){
+//                    alert(this.firstChild.nodeValue);
+//                };
+//                  lis[i].onclick = function(){
+//                      alert(i);  // 定格为3
+//               //     alert(lis[i].firstChild.nodeValue);
+//                  };
+                lis[i].onclick = (function(n){
+                    return function(){
+                        alert(lis[n].firstChild.nodeValue);
+                    }
+                })(i);//匿名函数自调用
+            }
+//            function clk(n){
+//                function f2(){
+//                    alert(lis[n].firstChild.nodeValue);
+//                }
+//                return f2;
+//            }
+//            function clk(n){
+//                return function(){
+//                    alert(lis[n].firstChild.nodeValue);
+//                };
+//            }
+        };
+    </script>
+</head>
+<body>
+<ul>
+    <li>北京</li>
+    <li>上海</li>
+    <li>广州</li>
+</ul>
+</body>
+</html>

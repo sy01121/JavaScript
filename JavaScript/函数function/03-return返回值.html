@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>return返回值</title>
+    <script type="text/javascript">
+        //函数通过return关键字返回信息
+        function f1(){
+            var name = "php0609";
+            var time = "20150609";
+            var person = 80;
+            var isbiye = false;
+            //var tom = 对象;
+            // 以上是给本函数声明一些局部变量信息，变量的数据类型有多种
+            // 那么同理，在该函数内部也可以声明一个函数（嵌套函数）
+            // 函数本身也是对象，就等于声明一个对象变量而已
+            function f2(){
+                console.log('I am f2 function');
+            }
+            return f2;
+        }
+        // f1函数的返回值用变量来接收
+        var ff = f1(); // 结果是f2对ff进行赋值，其是引用赋值（ff和f2指引同一个function）
+        ff(); // I am f2 function
+    </script>
+</head>
+<body>
+
+</body>
+</html>

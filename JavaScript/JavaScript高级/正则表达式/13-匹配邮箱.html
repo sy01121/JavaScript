@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匹配邮箱</title>
+    <script type="text/javascript">
+        /*
+        * 匹配邮箱：
+        * tom@163.com
+        * jim_666@sohu.com
+        * xiaoqiang_beijing@163.com
+        * YueHan_123@sina.com.cn
+        * 29832937@qq.com
+        * mary.newyork@gmail.com
+        * */
+        var str = 'hello@163.com'; //["hello@163.com", ".com", index: 0, input: "hello@163.com"]
+        var str = 'YueHan_123@sina.com.cn'; // ["YueHan_123@sina.com.cn", ".cn", index: 0, input: "YueHan_123@sina.com.cn"]
+        var str = '29832937@qq.com'; // ["29832937@qq.com", ".com", index: 0, input: "29832937@qq.com"]
+        var str = 'mary.newyork@gmail.com'; // ["mary.newyork@gmail.com", ".com", index: 0, input: "mary.newyork@gmail.com"]
+        var str = 'jim_666@sohu.com'; // ["jim_666@sohu.com", ".com", index: 0, input: "jim_666@sohu.com"]
+        var reg = /^[a-zA-Z1-9][a-zA-Z\d\._]+@[0-9a-z]+(\.[a-z]+)+$/;
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

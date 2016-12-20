@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象访问成员的类型及顺序</title>
+    <script type="text/javascript">
+        function Wolf(){
+            this.eye = '闪闪发光';
+            this.fight = '多个打一个'; // ④构造函数继承对象构造函数内部成员
+        }
+        var seven = new Wolf();
+        seven.fight = '七个打一个';  // ③构造函数继承对象本身的成员
+        function Dog(){
+            this.fight = '一个打多个';  // ②构造函数内部成员
+        }
+        Dog.prototype = seven;
+        var wangcai = new Dog();
+        wangcai.fight = '一个打两个';  // ①对象本身的成员
+        console.log(wangcai.fight); // 一个打两个
+        console.log(wangcai.eye); // 闪闪发光
+        // 对象本身的成员 >>> 构造函数内部成员 >>> 构造函数继承对象本身的成员 >>> 构造函数继承对象构造函数内部成员
+    </script>
+</head>
+<body>
+
+</body>
+</html>

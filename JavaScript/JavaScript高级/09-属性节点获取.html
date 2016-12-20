@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性节点获取</title>
+</head>
+<body>
+<h2>属性节点获取</h2>
+<input type="text" name="username" value="tom" class="orange" weight=130>
+</body>
+</html>
+<script type="text/javascript">
+    var nm = document.getElementsByTagName('input')[0];
+    //以“对象”形式返回对应节点内部的全部属性节点信息
+    //各个属性节点就是对象的成员属性
+    console.log(nm.attributes); //NamedNodeMap {0: type, 1: name, 2: value, 3: class, 4: weight}
+
+    // 获得具体的属性节点
+    console.log(nm.attributes.value); // value="tom"
+    console.log(nm.attributes.value.nodeType); // 2 属性节点
+    console.log(nm.nodeType); // 1 元素节点
+
+</script>

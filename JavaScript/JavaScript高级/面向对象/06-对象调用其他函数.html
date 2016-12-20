@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象调用其他函数</title>
+    <script type="text/javascript">
+        // 对象调用其他函数
+        var mingzi = '加菲猫';
+        function getInfo(){
+            console.log(this.mingzi+'在爬树'); // 最好别用this.name，因为name是JavaScript的关键字
+        };
+        window.getInfo();  // 加菲猫在爬树
+
+        var cat = {mingzi:'波斯猫'};
+        // 使得cat对象去调用getInfo()方法
+        // 给cat丰富一个成员方法，通过getInfo的另一个引用对该方法进行赋值即可
+        cat.express = getInfo; // getInfo函数对象对express进行赋值（引用赋值）
+
+        cat.express(); // 波斯猫在爬树
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点创建和追加</title>
+</head>
+<body>
+<h2>节点创建和追加</h2>
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * <ul>
+     *     <li city="沈阳">辽宁</li>
+     *     <li city="济南">山东</li>
+     *     <li city="杭州">浙江</li>
+     * </ul>
+     */
+    var ull = document.createElement('ul');
+    var province = ['辽宁','山东','浙江'];
+    var city = ['沈阳','济南','杭州'];
+    for(k in province){
+        // ①创建li元素节点
+        var lii = document.createElement('li');
+        // ② 创建li内部的文本元素
+        var txt = document.createTextNode(province[k]);
+        // ③ 给li节点设置属性
+        lii.setAttribute('city',city[k]);
+        // ④ 给li追加文本节点
+        lii.appendChild(txt);
+        // ⑤ 给ul追加li元素节点
+        ull.appendChild(lii);
+    }
+
+    // 给body（元素父节点）追加ull元素节点
+    document.getElementsByTagName('body')[0].appendChild(ull);
+</script>

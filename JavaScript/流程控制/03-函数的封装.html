@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的封装</title>
+    <script type="text/javascript">
+        //函数封装
+        //1.  传统方式的封装
+        //    该方式封装的函数允许“先调用、后声明”，该过程称为函数的“预加载”过程
+        //    预加载：程序代码没有执行之前，函数的声明先进入“内存”
+        //           表面是函数的调用在前，声明在后，本质是函数的声明在前、调用在后
+        //           预加载条件是“声明、调用”必须在同一个script标记里边
+        //                      原因是每个script标记独立加载、解释、运行
+        getInfo();//B
+
+        function getInfo(){  //A
+            console.log('beijing');
+        }
+
+        //javascript里边一切都是对象
+        //函数也是对象（数据类型的一种）
+        var name = "tom";
+        //2.  变量赋值方式声明函数（该方式函数没有预加载）
+        var getWeather = function(){
+            console.log('晴朗');
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

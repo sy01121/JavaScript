@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性值操作</title>
+</head>
+<body>
+<h2>属性值操作</h2>
+<input type="text" name="username" value="tom" class="orange" weight=130>
+<input type="button" value="获取" onclick="f1()">
+<input type="button" value="设置" onclick="f2()">
+</body>
+</html>
+<script type="text/javascript">
+    var nm = document.getElementsByTagName('input')[0]; // 设置成全局变量，函数f1、f2均能使用
+    function f1(){
+        // 获取元素节点属性
+        console.log(nm.type); //text
+        console.log(nm.name); //username
+        console.log(nm.value); //tom
+        console.log(nm.className); //orange   class是js关键字，不能直接使用，需要变形为className操作
+        console.log(nm.weight);   //undefined 此方法不能获得自定义属性信息
+        console.log(nm.getAttribute('weight'));//130
+        console.log(nm.getAttribute('class')); // orange 获取规定的属性信息也OK class可以直接用
+    }
+    function f2(){
+        // 设置元素节点的属性
+        nm.name = "usertel";
+        //nm.value = "18105351789"; //这个设置value值有问题，只能改变输入框的显示，改不了输入框里value值
+        nm.className = "banana";
+        // nm.type = "checkbox"; // 不推荐使用，存在浏览器兼容问题
+        //nm.weight = 150;//自定义属性修改失败
+        nm.setAttribute('weight',155); // 自定义属性设置OK
+        nm.setAttribute('value','12345678900'); //规定属性设置OK
+        nm.setAttribute('class','pear');
+    }
+</script>

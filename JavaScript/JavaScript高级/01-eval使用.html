@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eval使用</title>
+    <script type="text/javascript">
+        var a = 10;
+        var b = 15;
+        console.log(a+b);   // 【25】
+        console.log("a+b"); // 1015  25  【a+b】  报错
+        // "a+b"被当做普通的字符串做输出
+
+        // eval把内部的参数字符串当做表达式运行起来
+        console.log(eval("a+b")); // 【25】
+
+        // console.log(alert(123));  // 看到弹窗、输出undefined（因为alert弹窗不返回任何值）
+
+        console.log("alert(456)");  // 没有弹窗、输出alert(456)字符串
+        console.log(eval("alert(789)")); // 看到弹窗、输出undefined（因为alert弹窗不返回任何值）
+
+        // console.log(eval("alrt(111)"));  // Uncaught ReferenceError: alrt is not defined 报错
+        // alrt(111); // Uncaught ReferenceError: alrt is not defined 报错
+        console.log(eval("a+d")); // Uncaught ReferenceError: d is not defined 报错（d未定义）
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

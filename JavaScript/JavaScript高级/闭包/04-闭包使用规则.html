@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包使用规则</title>
+    <script type="text/javascript">
+        // 闭包使用规则
+        // 同一个闭包机制可以创建多个闭包函数出来，它们彼此没有联系，都是独立的。
+        // 并且每个闭包函数可以保存自己个性化的信息。
+
+        function f1(){
+            var num = 200;
+            function f2(){
+                console.log('数字：'+(num++));
+            };
+            return f2;
+        };
+
+        // 生成闭包
+        var fa = f1();
+        fa(); // 数字：200(num++先使用后自增)
+        fa(); // 数字：201
+        fa(); // 数字：202
+
+        var fb = f1();
+        fb(); // 数字：200
+        fb(); // 数字：201
+    </script>
+</head>
+<body>
+
+</body>
+</html>

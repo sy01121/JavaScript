@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局变量和局部变量</title>
+    <script type="text/javascript">
+        function f1(){
+            // 函数内部声明“全局变量”
+            subject = "php";
+            // 函数内部声明“局部变量”，只能在函数内部使用
+            var subject2 = "js";
+            return subject2;
+        }
+        // 先调用函数变量才能使用
+        f1();
+        console.log(subject);  // php
+        console.log(f1());    // js
+    </script>
+</head>
+<body>
+
+</body>
+</html>

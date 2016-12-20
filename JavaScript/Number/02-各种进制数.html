@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>各种进制数</title>
+
+    <script type="text/javascript">
+
+        // 1. 十进制
+        var score=90;
+        console.log(score);    //90
+
+        // 2. 八进制数 0+数字
+        //八进制数---->十进制数  除第一个0外，各个数字*8的（各个数字的位数-1）次方 的算术和
+        console.log(023);        //2*8+3 = 19
+        console.log(053);        //5*8+3 = 43
+        console.log(0327);       //3*8*8+2*8+7 = 215
+        console.log(06142);      //6*8*8*8+1*8*8+4*8+2*1 = 3170
+
+        console.log(029);        //29  恢复为十进制数
+
+        //3.十六进制数  （10A  11B  12C  13D  14E  15F）
+        //十六进制数---->十进制数  除第一个0外，各个数字*16的（各个数字的位数-1）次方 的算术和
+        console.log(0x47);       //4*16+7 = 71
+        console.log(0xD3);       //13*16+3 = 211
+        console.log(0x79F);      //7*16*16+9*16+15 = 1951
+
+
+        //浮点数
+        console.log(13.42);        //13.42
+        console.log(3.1415926);   //3.1415926
+        console.log(0.25);       //0.25 推荐使用
+        console.log(.25);       //0.25 没问题，但可读性不好
+        console.log(35.0);     //35
+    </script>
+</head>
+<body>
+
+</body>
+</html>

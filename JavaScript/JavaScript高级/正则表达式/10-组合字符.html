@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组合字符</title>
+    <script type="text/javascript">
+        // \d：表示数字[0-9]
+        // \D：表示非数字[^0-9]
+        var str = 'this is 20161210';
+        var reg = /\d/; // ["2", index: 8, input: "this is 20161210"]
+        var reg = /\d+/; // ["20161210", index: 8, input: "this is 20161210"]
+        var reg = /\D+/; // ["this is ", index: 0, input: "this is 20161210"]
+
+        // \w：表示字母、数字、下划线（_）其中一个[a-zA-Z0-9_]
+        // \W：表示非字母、数字、下划线
+        var str = 'YueHua_999@163.com';
+        var reg = /\w/; // ["Y", index: 0, input: "YueHua_999@163.com"]
+        var reg = /\w+/; // ["YueHua_999", index: 0, input: "YueHua_999@163.com"]
+        var reg = /\W+/; // ["YueHua_999", index: 0, input: "YueHua_999@163.com"]
+
+        // \s：表示空格
+        // \S：表示非空格
+        var str = 'Today       Wednesday';
+        var reg = /[A-Za-z]+       [A-Za-z]+/; // ["Today       Wednesday", index: 0, input: "Today       Wednesday"]
+        var reg = /[a-z]+       [a-z]+/i; // ["Today       Wednesday", index: 0, input: "Today       Wednesday"]
+        var reg = /[a-z]+\s{7}[a-z]+/i; // ["Today       Wednesday", index: 0, input: "Today       Wednesday"]
+        var reg = /\S/; // ["T", index: 0, input: "Today       Wednesday"]
+        var reg = /\S+/; // ["Today", index: 0, input: "Today       Wednesday"]
+
+        // \b：表示单词边界
+        // \B：表示非单词边界
+        var str = 'this is php0609 banji';
+        // this was php0609 banji
+        var reg = /is/; // thwas is php0609 banji
+        var reg = /\bis\b/; // this was php0609 banji
+        // replace(被替换的内容[字符串/正则模式]，替换内容)
+        var new_str = str.replace(reg,'was');
+        console.log(new_str);
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得元素节点方式1</title>
+</head>
+<body>
+<h2>获得元素节点方式1</h2>
+<input type="text" id="username" value="xiaoming"><br>
+<input type="text" id="useremail" value="xiaoming@163.com"><br>
+<input type="text" id="usertel" value="13268794832"><br>
+
+<script type="text/javascript">
+    // （1）document.getElementById(id属性值)
+    var email = document.getElementById('username');
+    console.log(email);//<input type="text" id="username" value="xiaoming">
+
+    var tel = document.getElementById('usertel');
+    console.log(tel); //<input type="text" id="usertel" value="13268794832">
+    // 获得节点类型
+    console.log(tel.nodeType);  // 1 元素节点
+</script>
+</body>
+</html>

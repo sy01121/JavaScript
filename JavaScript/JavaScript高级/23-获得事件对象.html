@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获得事件对象</title>
+    <style type="text/css">
+        h1{ width: 300px; height: 200px; background-color: pink;}
+    </style>
+</head>
+<body>
+<h1>获得事件对象</h1>
+
+<script type="text/javascript">
+    var hh = document.getElementsByTagName('h1')[0];
+    //主流浏览器（包括IE9以上），事件对象就是事件处理函数的第一个形参
+    hh.onclick = function(evt){
+        console.log(evt);
+        alert(evt);  // [object MouseEvent]
+    };
+</script>
+</body>
+</html>

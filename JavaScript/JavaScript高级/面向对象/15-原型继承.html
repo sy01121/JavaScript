@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承</title>
+    <script type="text/javascript">
+        var cat = {mingzi:'kitty',climb:function(){console.log(this.mingzi+'在爬树')}};
+        function Tiger(){
+            this.color = 'yellow';
+            this.leg = 4;
+            this.act = '猛虎下山';
+        }
+        var north = new Tiger();
+        console.log(north); // Tiger {color: "yellow", leg: 4, act: "猛虎下山"}
+
+        // 构造函数 去继承 对象
+        Tiger.prototype = cat;
+        var south = new Tiger();
+        // south对象成员 本身默认 继承cat
+        console.log(south);  // Object { color="yellow",  leg=4,  act="猛虎下山",  更多...}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

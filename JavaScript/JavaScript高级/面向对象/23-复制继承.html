@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制继承</title>
+    <script type="text/javascript">
+        // 复制继承
+        // 该继承在jQuery框架有大量应用
+        // 该继承允许同时继承“多个对象”
+        // （不同于原型继承（所有继承的基础）：构造函数继承对象，继承多个对象会被覆盖）
+        //该继承的特点/好处：继承非常灵活，可以根据实际情况需要为对象去继承成员
+        //                 如果有的对象不要额外成员，就不继承即可
+        //                 同时该继承允许同时继承“多个对象”
+        var cat = {color:'white',weapon:'伶牙俐齿',climb:function(){console.log('在爬树')}};
+        var seven = {eye:'闪闪发光',tail:'笔直的尾巴'};
+        function Dog(){
+            this.color = 'gray';
+            this.leg = 4;
+        }
+        Dog.prototype.extend = function(obj){
+            // this:代表调用该方法的当前对象
+            //遍历obj，获得所有具体成员，并赋予给black（赋予给调用这个方法的对象）（this）对象
+            for(var k in obj){
+                // 不能用this.k进行赋值
+                // this.k为this新增成员名为‘k’的成员
+
+                // 继承本身不存在的成员
+                if(!this.hasOwnProperty(k))
+                this[k] = obj[k]; // 直接为this丰富成员
+            }
+        };
+        var black = new Dog();
+        var yellow = new Dog();
+
+        // 使得black对象去继承cat对象、seven对象
+        black.extend(cat); //extend是自定义方法（为了后期使用与jQuery保持想法一致，使用该名称）
+        black.extend(seven);
+
+        console.log(black); // 对象成员：本身的、cat的、seven的
+        console.log(yellow);// 对象成员：只有本身的
+    </script>
+</head>
+<body>
+
+</body>
+</html>

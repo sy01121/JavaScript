@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态成员</title>
+    <script type="text/javascript">
+        // 静态成员
+        function Cat(){
+            this.color = 'white';
+            this.leg = 4;
+        }
+        var kitty = new Cat();
+        // 以上代码有两种对象：kitty普通对象、Cat函数对象
+        // 两个对象有各自访问的成员，它们成员不能交叉访问
+
+        // kitty对象可以调用color和leg两个成员（Cat不能调用color和leg成员）
+        console.log(kitty.color); // white
+        console.log(Cat.color);  // undefined
+        // 给Cat函数对象直接丰富成员就是“静态成员”
+        Cat.eat = function(){
+            console.log('吃鱼');
+        }
+        Cat.climb = '在爬树';
+
+        //var kitty = new Cat();
+
+        console.log(Cat.climb); // 在爬树
+        Cat.eat();  // 吃鱼
+       // console.log(kitty.climb);  // undefined
+       // kitty.eat(); // kitty.eat is not a function
+    </script>
+</head>
+<body>
+
+</body>
+</html>

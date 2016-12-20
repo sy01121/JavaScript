@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom2级事件设置(综合)</title>
+    <style type="text/css">
+        h2{ width: 300px;height: 200px;background-color: lightcoral;}
+    </style>
+</head>
+<body>
+<h2>dom2级事件设置</h2>
+
+<script type="text/javascript">
+    // dom2级事件设置（综合）
+    var hh = document.getElementsByTagName('h2')[0];
+    //  事件处理函数为 匿名函数
+    hh.addEventListener('mouseover',function(){
+        // 背景颜色发生变化
+        this.style.backgroundColor = 'lightblue';
+        // 改变字体颜色
+        hh.style.color = 'green';
+    });
+    hh.addEventListener('mouseout',function(){
+        // 背景颜色发生变化
+        this.style.backgroundColor = 'lightcoral';
+        // 改变字体颜色
+        hh.style.color = '#000';
+    });
+
+    // 事件处理函数为 有名函数
+    // 为同一个h2元素对象绑定多个同类型的click事件
+    function f1(){
+        console.log('111');
+    };
+    function f2(){
+        console.log('222');
+    };
+    function f3(){
+        console.log('333');
+    };
+    hh.addEventListener('click',f1); // f1没有()括号，是函数的名字对click赋值（而非函数运行返回的信息赋值）
+    hh.addEventListener('click',f2); // 将f2作为参数传进来，而不是f2(),addEventListener的第二个参数是 事件处理 是函数（而非函数调用运行完后得到的返回值）
+    hh.addEventListener('click',f3);
+</script>
+</body>
+</html>

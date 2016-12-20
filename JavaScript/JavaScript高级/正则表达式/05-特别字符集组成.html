@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>特别字符集组成</title>
+    <script type="text/javascript">
+        // 没有特殊说明就是“单次”匹配
+        // 从字符串的左边找到第一个符合模式的内容即可
+        // ^(托字符)：表示字符串的“开始”位置（托字符）
+        // $：匹配输入字符串的“结尾”位置。
+        var str = 'xiaoming like banana';
+        var reg = /banana/; // ["banana", index: 14, input: "xiaoming like banana"]
+        var reg = /^banana/;// null
+        var reg = /banana$/;// ["banana", index: 14, input: "xiaoming like banana"]
+        var reg = /^xiaoming/;// ["xiaoming", index: 0, input: "xiaoming like banana"]
+
+        // ^和$符号存在于全部的正确的正则表达式里边
+        // ^和$符号可以保证正则对目标字符串的“完整”匹配
+        // 在有些场合要求正则匹配必须是完整匹配
+
+        var str = '13405351787';
+        //{m} 前面单元严格出现m次
+        var reg = /13[0-9]{9}/;// ["13405351787", index: 0, input: "13405351787"]
+        var str = '13405351787xiaoming'
+        var reg = /13[0-9]{9}$/;//null
+        var str = 'hello13405351787'
+        var reg = /13[0-9]{9}$/;//["13405351787", index: 5, input: "hello13405351787"]
+        var str = '13405351787';
+        // 严格要求被匹配的字符串是13开始，后续有9个数字结尾，不允许出现其他内容
+        var reg = /^13[0-9]{9}$/ //["13405351787", index: 0, input: "13405351787"]
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

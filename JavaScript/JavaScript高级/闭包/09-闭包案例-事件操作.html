@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包案例-事件操作（成功）</title>
+    <script type="text/javascript">
+        // 给li设置mouseover和mouseout事件，效果：鼠标滑过高亮显示当前行
+        window.onload = function(){
+            var lis = document.getElementsByTagName('li');
+            for(var i=0;i<lis.length;i++){
+                lis[i].onmouseover = over(i); // 闭包
+                lis[i].onmouseout = out(i);  // 闭包
+            };
+            function over(n){
+                function f2(){
+                    lis[n].style.backgroundColor = 'lightgreen';
+                };
+                return f2;
+            };
+            function out(n){
+                function f2(){
+                    lis[n].style.backgroundColor = '';
+                };
+                return f2;
+            };
+        };
+    </script>
+</head>
+<body>
+<h1>闭包案例-事件操作</h1>
+<ul>
+    <li>奥迪</li>
+    <li>宝马</li>
+    <li>奔驰</li>
+</ul>
+</body>
+</html>

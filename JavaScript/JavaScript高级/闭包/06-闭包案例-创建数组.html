@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包案例-创建数组</title>
+    <script type="text/javascript">
+        var arr = new Array;
+        for(var i=0; i<4; i++){};
+
+        arr[0] = function(){console.log(i)};
+        arr[1] = function(){console.log(i)};
+        arr[2] = function(){console.log(i)};
+        arr[3] = function(){console.log(i)};
+
+        arr[2](); // 2 【4】
+        arr[1](); // 1 【4】
+        arr[0](); // 0 【4】
+        arr[3](); // 3 【4】
+    </script>
+</head>
+<body>
+
+</body>
+</html>

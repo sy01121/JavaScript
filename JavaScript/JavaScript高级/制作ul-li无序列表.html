@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作ul/li无序列表</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            // 利用纯js制作一个ul/li的无序列表
+            var cars = ['奔驰','宝马','奥迪','保时捷'];
+            var ull = document.createElement('ul');
+            for(var i=0;i<cars.length;i++){
+                // 创建li节点、对应的文本节点
+                var lii = document.createElement('li');
+                var txt = document.createTextNode(cars[i]);
+                // 给每个lii设置mouseover和mouseout事件
+                lii.addEventListener('mouseover',function(){
+                    this.style.backgroundColor = 'lightgreen';
+                });
+                lii.addEventListener('mouseout',function(){
+                    this.style.backgroundColor = '';
+                });
+
+                //lii追加txt文本节点
+                lii.appendChild(txt);
+
+                //ull追加lii节点
+                ull.appendChild(lii);
+            };
+            //ull需要追加给body
+            //document.getElementsByTagName('body')[0];
+            document.body.appendChild(ull);   // 只有body元素可以直接document.body取
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>

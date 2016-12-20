@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父节点获取</title>
+</head>
+<body>
+<h2>父节点获取</h2>
+<ul>
+    <li>北京</li>
+    <li>上海</li>
+    <li>广州</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    // node.parentNode;
+    var hai = document.getElementsByTagName('li')[1];
+    console.log(hai.parentNode); // ul
+    console.log(hai.parentNode.parentNode); //body
+    console.log(hai.parentNode.parentNode.parentNode); //html
+    console.log(hai.parentNode.parentNode.parentNode.parentNode); //document
+    console.log(hai.parentNode.parentNode.parentNode.parentNode.nodeType); // 9 文档节点
+    console.log(hai.parentNode.parentNode.parentNode.parentNode.parentNode); //null
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载事件</title>
+    <script type="text/javascript">
+        //以下js代码执行的时候，需要html代码的支持
+        //因此最好先执行html代码（使得html先进入内存），再执行js代码
+        //先执行html&css，最后执行js代码，该过程就是一个“加载过程”，加载事件可以
+        //保证加载过程的实现
+        function jiazai(){
+            var hh = document.getElementsByTagName('h1')[0];
+            hh.onclick = function(){
+                alert('123');
+            };
+        };
+        function f22(){
+            alert('222');
+        };
+        //window.onload = jiazai;  //加载事件设置的第二种方式
+        //window.onload = f22; // dom1级事件设置方式，后面覆盖前面的设置
+        //window.addEventListener('load',jiazai);
+        //window.addEventListener('load',f22); // don2级事件设置方式可同类型的事件设置多个
+        window.onload = function(){ //匿名函数加载事件（灵活度大）
+            jiazai();
+            f22();
+        };
+    </script>
+</head>
+<!--  body里加 onload="jiazai()"是“加载事件”的一种方式，但不提倡，htnl与js代码混一起 -->
+<body>
+<h1>加载事件</h1>
+</body>
+
+<!--<script>-->
+    <!--jiazai();     // 也能实现加载事件效果，但方法有点二逼-->
+<!--</script>-->
+</html>

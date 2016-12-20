@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正向预查</title>
+    <script type="text/javascript">
+        //  正向预查
+        var str = 'http://web.0609.com/shop/index.php?name=tom&age=23&addr=beijing';
+        // 把以上字符串的get参数的名称都获取出来（name/age/addr）
+
+        // 利用[正向匹配]实现
+        // 要求：字母字符串右边必须出现“=”信息，“=等号”是辅助信息（非结果部分）
+        // var reg = /[a-z]+(?=普通字符内容/正则内容)/;
+        var reg = /[a-z]+(?==)/g; // ["name", "age", "addr"]
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

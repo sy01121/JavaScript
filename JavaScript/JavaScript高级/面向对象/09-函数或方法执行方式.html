@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数或方法执行方式</title>
+    <script type="text/javascript">
+        // 给程序每创建一个新变量 就增加变量污染的一层风险。
+
+        // 函数（方法）的执行方式：call和apply方式
+        // 函数(方法).call(函数内部this的指引，实参，实参，实参。。。)
+        // 函数(方法).apply(函数内部this的指引,[实参,实参,实参。。。]); 函数(方法).apply(this指引，Array);
+        var cat = {mingzi:'波斯猫',eat:function(){console.log(this.mingzi+'在吃鱼');}};
+        cat.eat(); // 波斯猫在吃鱼
+        var tiger = {mingzi:'东北虎',act:function(){console.log('猛虎下山')}};
+        // 使得tiger调用cat对象的eat方法
+        cat.eat.call(tiger); // 东北虎在吃鱼
+        cat.eat.apply(tiger); // 东北虎在吃鱼
+    </script>
+</head>
+<body>
+
+</body>
+</html>

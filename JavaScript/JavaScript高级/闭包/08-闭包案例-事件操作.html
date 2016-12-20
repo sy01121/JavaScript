@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包案例-事件操作（失败）</title>
+    <script type="text/javascript">
+        // 给li设置mouseover和mouseout事件，效果：鼠标滑过高亮显示当前行
+        window.onload = function(){
+            var lis = document.getElementsByTagName('li');
+            for(var i=0;i<lis.length;i++){
+                lis[i].onmouseover = function(){
+                    //this.style.backgroundColor = 'pink';
+                    lis[i].style.backgroundColor = 'lightblue';
+                };
+                lis[i].onmouseout = function(){
+                    //this.style.backgroundColor = '';
+                    lis[i].style.backgroundColor = '';
+                };
+            };
+        };
+        /*以上事件访问报错：08-闭包案例-事件操作.html:17 Uncaught TypeError: Cannot read property 'style' of undefined
+        * i的值已经定格为‘3’了
+        *  以上for循环执行的时候声明对应的function（但并没有执行），其只是对onmouseover和onmouseout赋值而已
+        *  当鼠标滑过li的项目，使得function执行的时候，其内部i已经定格为“3”的信息
+        *  简言之：所有的事件function都是访问的同一个全局i变量，而该i变量的信息为“3”，lis[i]小标最多为2，所以lis[i]不能获得元素
+        *         而我们需要的事件函数function，它们需要时独立的，内部的i信息分别是0/1/2不同的
+        *         这样我们需要使用闭包实现
+        * */
+    </script>
+</head>
+<body>
+<h1>闭包案例-事件操作</h1>
+<ul>
+    <li>奥迪</li>
+    <li>宝马</li>
+    <li>奔驰</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>特别字符集组成</title>
+    <script type="text/javascript">
+        // 没有特殊说明就是“单次”匹配
+        // 从字符串左边找到第一个符合模式的内容即可
+
+        // |（或）：指明两项之间选择一个
+        var str = 'xiaoming like apple,yuehan like bread'
+        var reg = /apple|bread/; // ["apple", index: 14, input: "xiaoming like apple,yuehan like bread"]
+
+        // .点：匹配除换行符\n之外的任何单字符  .*
+        var str = 's;fklgjfhjtiuy82738217534-5-0##$%(()_)_...****..'
+        var reg = /./; // ["s", index: 0, input: "s;fklgjfhjtiuy82738217534-5-0##$%(()_)_...****.."]
+        var reg = /.*/; // ["s;fklgjfhjtiuy82738217534-5-0##$%(()_)_...****..", index: 0, input: "s;fklgjfhjtiuy82738217534-5-0##$%(()_)_...****.."]
+        var str = 'ssdsff*&&^$%#@.....><><><><>\nopopppop';
+        var reg = /.*/; // ["ssdsff*&&^$%#@.....><><><><>", index: 0, input: "ssdsff*&&^$%#@.....><><><><>↵opopppop"]
+
+        // \：这个符号是用来转义的
+        //转义:把符号的“特殊意思”去除，只保留符号的本质意思
+        var str = '192.168-*';
+        var reg = /[0-9]+.[0-9]+/; // ["192.168", index: 0, input: "192.168"]
+//        var str = '192@168';
+//        var reg = /[0-9]+.[0-9]+/; // ["192@168", index: 0, input: "192@168"]
+        // 两个连续的数字字符串中间出现一个“点”
+        var reg = /[0-9]+\.[0-9]+-\*/; // ["192.168-*", index: 0, input: "192.168-*"]
+
+
+
+        var rst = str.match(reg);
+        console.log(rst);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

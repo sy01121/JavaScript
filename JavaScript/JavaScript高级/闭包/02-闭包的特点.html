@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包的特点</title>
+    <script type="text/javascript">
+        // 闭包的特点：闭包有权利调用其父级环境的变量信息
+        function f1(){
+            var week = 'Sunday';
+            function f2(){
+                console.log('星期：'+week);
+            };
+            f2();
+            return f2;
+        };
+        var ff = f1(); // f1执行后会返回f2函数而非f2()的执行结果，函数（对象）对ff进行赋值（引用赋值）
+
+        // 调用闭包函数ff，使其发生执行
+        ff();  // 星期：Sunday
+
+        /* 以上通过ff()调用,输出Sunday，不好理解
+        * （Sunday本身是week的局部变量信息，原则上不能再外部环境访问）
+        *
+        *  f2和ff是同一个function的两个不同的名字,f2是局部变量，ff是全局变量
+        *  因此，该function可以在“内部、外部”环境同时访问
+        *  无论是内部环境、还是外部环境，只要function执行，就与具体的上下级环境没有直接关系
+        *  内部week永远都是我们自己的AO活动对象的属性。
+        *  因此，只要改function能访问到，就无视内部变量的来源，其就是函数AO活动对象的属性，
+        *  是早就固化好的
+        *
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

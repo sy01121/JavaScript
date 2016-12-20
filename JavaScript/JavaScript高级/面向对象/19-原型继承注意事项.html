@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承注意事项</title>
+    <script type="text/javascript">
+        // ③ 同时继承多个"对象"，后者覆盖前者
+        var pig = {weight:120,hobby:'sleep'};
+        var cat = {climb:function(){console.log('在爬树')}};
+        var tiger = {act:'猛虎下山'};
+
+        function Dog(){
+            this.color = 'gray';
+            this.hobby = '看家护林';
+            this.mingzi = '旺财'
+        }
+        // 构造函数Dog继承对象pig
+        Dog.prototype = pig; // 继承对象
+        Dog.prototype = cat; // 继承对象
+        Dog.prototype = tiger; // 继承对象
+
+        var black = new Dog();
+        console.log(black); // 对象成员：本身的、最后继承对象的
+    </script>
+</head>
+<body>
+
+</body>
+</html>

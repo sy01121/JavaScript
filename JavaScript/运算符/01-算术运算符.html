@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>算术运算符</title>
+    <script type="text/javascript">
+        //算术运算符
+        //i++  ++i
+        //通过“返回值”可以看出其中的区别
+        //i++  先把i的值返回，本身再++计算
+        //++i  先计算++，再返回结果
+        //如果不考虑返回值，它们的最后结果一致
+
+        var score=100;
+
+        //两个score++ 跟 ++score 处理后score的值一样，这里用的是score的值，而不是返回值，所以没区别
+
+        //score++;
+        //console.log(score);  //101
+
+        //++score;
+        //console.log(score);   //101
+
+        //也是使用score++ 跟 ++score 处理后score的值，没区别
+
+        //console.log(++score)   //101
+        //console.log(score++)   //101
+
+        //var new_score=score++;  //score的值先返回给new_score,score本身再++计算
+        //console.log(new_score+"--"+score)  //100--101
+
+        var new_score=++score;   //score先进行++计算，再返回给new_score
+        console.log(new_score+"--"+score); //101--101
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

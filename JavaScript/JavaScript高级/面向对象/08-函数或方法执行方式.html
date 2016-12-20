@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数或方法执行方式</title>
+    <script type="text/javascript">
+        // 给程序每创建一个新变量 就增加变量污染的一层风险。
+
+        // 函数（方法）的执行方式：call和apply方式
+        // 函数(方法).call(函数内部this的指引，实参，实参，实参。。。)
+        // 函数(方法).apply(函数内部this的指引,[实参,实参,实参。。。]); 函数(方法).apply(this指引，Array);
+        function getInfo(){
+            console.log(this.mingzi+'在爬树');
+        };
+        var cat = {mingzi:'波斯猫'};
+        // 作为对象的成员方法执行
+        //cat.express = getInfo;
+        //cat.express = '大脸猫'; // 污染了上面的 express 变量
+        //cat.express();  // 波斯猫在爬树
+        // 以上的方法创建了新变量 express ，就增加变量污染的一层风险
+
+        getInfo.call(cat); // 波斯猫在爬树 call():使得cat调用getInfo函数
+        var dog = {mingzi:'德国黑背'};
+        getInfo.call(dog); // 德国黑背在爬树
+
+        function f1(addr,age){
+            console.log('名字：'+this.mingzi+'---地址：'+addr+'---年龄：'+age);
+        };
+        f1.call(cat,'美国',20); // 名字：波斯猫---地址：美国---年龄：20
+        f1.call(dog,'德国',10); // 名字：德国黑背---地址：德国---年龄：10
+        var per1 = {mingzi:'tom'};
+        f1.call(per1,'英国',50); // 名字：tom---地址：英国---年龄：50
+        f1.apply(per1,['英国',50]); // 名字：tom---地址：英国---年龄：50
+    </script>
+</head>
+<body>
+
+</body>
+</html>

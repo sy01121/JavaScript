@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register注册</title>
+</head>
+<body>
+<h1>事件作用对象（阻止浏览器的默认动作）</h1>
+<form action="./25.php" method="post">
+    <p>用户名：<input type="text" name="username"></p>
+    <p>密码：<input type="password" name="userpwd"></p>
+    <p>邮箱：<input type="text" name="useremail"></p>
+    <p><input type="submit" value="注册"></p>
+</form>
+
+<script type="text/javascript">
+    // 对表单进行验证，如果验证不正确，则浏览器禁止跳转
+    var fm = document.getElementsByTagName('form')[0];
+    // 给fm设置提交事件
+    fm.onsubmit = function(evt){
+        alert('邮箱格式不正确');  // 验证此处不学，假设邮箱格式有问题
+        //return false;   // 停止浏览器跳转
+        evt.preventDefault(); // 也可阻止浏览器跳转
+    };
+
+    // 阻止浏览器默认动作
+    // return false,其只针对dom1级事件起作用
+    // evt.preventDefault(); dom1和dom2都起作用
+    fm.addEventListener('submit',function(evt){
+        alert('邮箱格式不正确dom2');
+        //return false;  // 失效
+        evt.preventDefault(); // 阻止浏览器跳转
+    });
+</script>
+</body>
+</html>
